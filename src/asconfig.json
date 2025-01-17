@@ -1,0 +1,26 @@
+{
+  "targets": {
+    "debug": {
+      "outFile": "../build/debug/ModSign.wasm",
+      "textFile": "../build/debug/ModSign.wat",
+      "sourceMap": true,
+      "debug": true
+    },
+    "release": {
+      "outFile": "../build/release/ModSign.wasm",
+      "textFile": "../build/release/ModSign.wat",
+      "sourceMap": true,
+      "optimizeLevel": 3,
+      "shrinkLevel": 0,
+      "converge": false,
+      "noAssert": false
+    }
+  },
+  "options": {
+    "exportStart": "_start",
+    "disable": ["sign-extension", "bulk-memory"],
+    "disableWarning": "235",
+    "lib": [],
+    "use": ["abort="]
+  }
+}

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package modsign;
+
+import "koinos/options.proto";
+
+message on_install_args {
+    bytes data = 1;
+}
+
+message on_uninstall_args {
+    bytes data = 1;
+}
+
+message is_type_args {
+    uint32 type_id = 1;
+}
+
+message is_type_result {
+    bool value = 1;
+}
+
+message selector {
+    uint32 entry_point = 1;
+    bytes contract_id =2  [(koinos.btype) = ADDRESS];
+}
+
+message manifest {
+    string name = 1;
+    uint32 type_id = 2;
+    uint32 version = 3;
+    string description = 4;
+    repeated selector selectors = 5;
+}
+
+message operation {
+    bytes contract_id = 1 [(koinos.btype) = ADDRESS];
+    uint32 entry_point = 2;
+    bytes args = 3;
+}
+
+message is_valid_signature_args {
+    bytes sender = 1 [(koinos.btype) = ADDRESS];
+    bytes signature = 2;
+    bytes tx_id = 3 [(koinos.btype) = HEX];
+}
+
+message is_valid_signature_result {
+    bool value = 1;
+}

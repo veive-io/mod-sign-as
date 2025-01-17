@@ -1,0 +1,1 @@
+export const MODULE_SIGN_TYPE_ID = 3;
